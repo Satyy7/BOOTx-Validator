@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bootx"
+version = "0.1.0"
+description = "ARM64 SoC boot firmware validation and fault-injection lab (QEMU-based)"
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "pyyaml>=6.0",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-timeout>=2.2",
+]
+
+[project.scripts]
+bootx = "bootx.cli.main:cli"
+
+[tool.setuptools.packages.find]
+include = ["bootx*"]
+
+[tool.pytest.ini_options]
+markers = [
+    "smoke: fast sanity tests that must pass on every commit",
+    "boot: basic boot / stage sequencing tests",
+    "contract: boot contract engine tests",
+    "memory: memory map validation tests",
+    "dtb: device tree validation tests",
+    "image: firmware image integrity tests",
+    "handoff: stage handoff validation tests",
+    "psci: PSCI validation tests",
+    "smp: multi-core / SMP tests",
+    "fault: fault-injection tests",
+    "hang_detection: timeout / hang detection tests (named to avoid colliding with pytest-timeout's own 'timeout' marker)",
+    "performance: boot timing tests",
+    "regression: full regression suite",
+]
+testpaths = ["tests"]

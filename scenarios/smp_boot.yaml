@@ -1,0 +1,21 @@
+# Same contract as normal_boot, used across -smp 1/2/4/8 parameterized runs
+# (tests/test_smp.py). Secondary CPU bring-up is checked separately via
+# CPU_ON event counts, not as a required_stage here, since it doesn't apply
+# to -smp 1.
+name: smp_boot
+boot:
+  required_stages:
+    - BL1_ENTRY
+    - BL31_ENTRY
+    - BL33_ENTRY
+    - KERNEL_ENTRY
+    - USERSPACE_READY
+  order:
+    - BL1_ENTRY
+    - BL31_ENTRY
+    - BL33_ENTRY
+    - KERNEL_ENTRY
+    - USERSPACE_READY
+  required_events:
+    - KERNEL_ENTRY
+  timeout_ms: 15000

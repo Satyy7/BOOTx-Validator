@@ -1,0 +1,10 @@
+# Fault-injection scenarios exercising bootx/faults/invalid_dtb.py and
+# bootx/validation/dtb.py.
+name: dtb_faults
+scenarios:
+  - fault: invalid_dtb
+    target: virt.dtb
+    expected_category: DTB_FAILURE
+  - fault: missing_dtb
+    target: virt.dtb
+    expected_category: DTB_FAILURE

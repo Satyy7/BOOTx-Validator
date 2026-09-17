@@ -1,0 +1,7 @@
+# Fault-injection scenario exercising bootx/faults/timeout.py and the
+# handoff/timeout detector in bootx/validation/handoff.py.
+name: timeout_faults
+scenarios:
+  - fault: boot_timeout
+    target: u-boot-autoboot
+    expected_category: TIMEOUT_FAILURE

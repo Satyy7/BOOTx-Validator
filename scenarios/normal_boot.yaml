@@ -1,0 +1,21 @@
+# Boot contract for a healthy, unmodified BOOTX boot: TF-A -> U-Boot -> Linux -> userspace.
+name: normal_boot
+boot:
+  required_stages:
+    - BL1_ENTRY
+    - BL2_ENTRY
+    - BL31_ENTRY
+    - BL33_ENTRY
+    - KERNEL_ENTRY
+    - USERSPACE_READY
+  order:
+    - BL1_ENTRY
+    - BL2_ENTRY
+    - BL31_ENTRY
+    - BL33_ENTRY
+    - KERNEL_ENTRY
+    - USERSPACE_READY
+  required_events:
+    - DTB_LOADED
+    - KERNEL_ENTRY
+  timeout_ms: 15000

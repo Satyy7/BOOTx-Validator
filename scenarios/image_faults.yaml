@@ -1,0 +1,14 @@
+# Fault-injection scenarios exercising bootx/faults/corrupt_image.py.
+# A scenario here is considered PASS when BOOTX correctly detects and
+# classifies the injected failure -- not when the boot itself succeeds.
+name: image_faults
+scenarios:
+  - fault: corrupt_image
+    target: u-boot.bin
+    expected_category: IMAGE_FAILURE
+  - fault: missing_image
+    target: u-boot.bin
+    expected_category: IMAGE_FAILURE
+  - fault: invalid_hash
+    target: u-boot.bin
+    expected_category: IMAGE_FAILURE
