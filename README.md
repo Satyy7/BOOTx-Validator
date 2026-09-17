@@ -206,7 +206,7 @@ sudo apt-get install -y \
   qemu-system-arm qemu-utils \
   gcc-aarch64-linux-gnu g++-aarch64-linux-gnu \
   device-tree-compiler \
-  build-essential bc bison flex libssl-dev libelf-dev \
+  build-essential bc bison flex libssl-dev libelf-dev libgnutls28-dev \
   cpio rsync python3-pip python3-venv unzip
 ```
 
